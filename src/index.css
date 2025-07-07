@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Hacker Theme - Dark Background */
+    --background: 222 47% 3%;
+    --foreground: 142 76% 73%;
+
+    /* Cards with subtle transparency */
+    --card: 222 47% 5%;
+    --card-foreground: 142 76% 73%;
+
+    --popover: 222 47% 5%;
+    --popover-foreground: 142 76% 73%;
+
+    /* Primary - Matrix Green */
+    --primary: 142 76% 36%;
+    --primary-foreground: 222 47% 3%;
+
+    /* Secondary - Darker green */
+    --secondary: 222 47% 8%;
+    --secondary-foreground: 142 76% 73%;
+
+    /* Muted tones */
+    --muted: 222 47% 8%;
+    --muted-foreground: 142 40% 60%;
+
+    /* Accent - Bright matrix green */
+    --accent: 142 76% 50%;
+    --accent-foreground: 222 47% 3%;
+
+    /* Destructive - Red for errors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders and inputs */
+    --border: 142 40% 20%;
+    --input: 222 47% 8%;
+    --ring: 142 76% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors for the theme */
+    --matrix-green: 142 76% 50%;
+    --matrix-green-dark: 142 76% 36%;
+    --matrix-green-light: 142 76% 73%;
+    --terminal-bg: 222 47% 3%;
+    --terminal-surface: 222 47% 5%;
+    --terminal-surface-elevated: 222 47% 8%;
+    
+    /* Gradients */
+    --gradient-matrix: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(142 76% 50%) 100%);
+    --gradient-terminal: linear-gradient(135deg, hsl(222 47% 3%) 0%, hsl(222 47% 8%) 100%);
+    --gradient-code: linear-gradient(90deg, hsl(142 76% 36% / 0.1) 0%, hsl(142 76% 50% / 0.2) 100%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 20px hsl(142 76% 50% / 0.3);
+    --shadow-terminal: 0 4px 20px hsl(222 47% 3% / 0.5);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .matrix-flicker {
+    animation: matrix-flicker 2s infinite;
+  }
+
+  .code-scroll {
+    background: linear-gradient(90deg, transparent, hsl(var(--matrix-green) / 0.1), transparent);
+    background-size: 200% 100%;
+    animation: code-scroll 3s linear infinite;
+  }
+
+  .glow-border {
+    border: 1px solid hsl(var(--matrix-green) / 0.3);
+    box-shadow: 0 0 10px hsl(var(--matrix-green) / 0.2);
+    transition: var(--transition-smooth);
+  }
+
+  .glow-border:hover {
+    border-color: hsl(var(--matrix-green) / 0.6);
+    box-shadow: 0 0 20px hsl(var(--matrix-green) / 0.4);
+  }
+
+  .terminal-prompt::before {
+    content: '> ';
+    color: hsl(var(--matrix-green));
+  }
+
+  .fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .slide-in-right {
+    animation: slide-in-right 0.8s ease-out forwards;
+  }
+}
+
+@layer utilities {
+  .text-matrix {
+    color: hsl(var(--matrix-green));
+  }
+
+  .text-matrix-light {
+    color: hsl(var(--matrix-green-light));
+  }
+
+  .text-matrix-dark {
+    color: hsl(var(--matrix-green-dark));
+  }
+
+  .bg-terminal {
+    background-color: hsl(var(--terminal-bg));
+  }
+
+  .bg-terminal-surface {
+    background-color: hsl(var(--terminal-surface));
+  }
+
+  .bg-terminal-elevated {
+    background-color: hsl(var(--terminal-surface-elevated));
+  }
+
+  .gradient-matrix {
+    background: var(--gradient-matrix);
+  }
+
+  .gradient-terminal {
+    background: var(--gradient-terminal);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-terminal {
+    box-shadow: var(--shadow-terminal);
+  }
+
+  .shadow-terminal-lg {
+    box-shadow: 0 6px 32px hsl(var(--terminal-bg) / 0.7), 0 1.5px 0 hsl(var(--matrix-green) / 0.4);
+  }
+}
+
+@keyframes matrix-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes code-scroll {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

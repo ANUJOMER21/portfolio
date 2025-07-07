@@ -137,7 +137,7 @@ const Skills = () => {
               </div>
               <div className="ml-4 md:ml-8 space-y-2">
                 <div><span className="text-matrix-light">totalSkills:</span> <span className="text-yellow-400">25+</span>,</div>
-                <div><span className="text-matrix-light">yearsOfExperience:</span> <span className="text-yellow-400">4</span>,</div>
+                <div><span className="text-matrix-light">yearsOfExperience:</span> <span className="text-yellow-400">2+</span>,</div>
                 <div><span className="text-matrix-light">specialties:</span> <span className="text-yellow-400">["Android Development", "AI/ML", "Full Stack"]</span>,</div>
                 <div><span className="text-matrix-light">currentlyLearning:</span> <span className="text-yellow-400">["Advanced AI", "Cloud Technologies", "DevOps"]</span>,</div>
                 <div><span className="text-matrix-light">motto:</span> <span className="text-green-400">"Never stop learning, never stop coding"</span></div>
